@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  name: MyString
+  time_to_do: 1
+  time_start: 2023-04-10 21:29:09
+  time_end: MyString
+  timestamp: MyString
+  do_once: false
+  password: MyString
+  prevent_cheat: 1
+  show_mark: 1
+  show_answer: 1
+  version: 1
+  created_by: 1
+
+two:
+  code: MyString
+  name: MyString
+  time_to_do: 1
+  time_start: 2023-04-10 21:29:09
+  time_end: MyString
+  timestamp: MyString
+  do_once: false
+  password: MyString
+  prevent_cheat: 1
+  show_mark: 1
+  show_answer: 1
+  version: 1
+  created_by: 1
