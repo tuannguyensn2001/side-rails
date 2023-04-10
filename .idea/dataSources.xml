@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="rails@localhost" uuid="1af16752-5501-4fec-aaae-08de8569feca">
+    <data-source source="LOCAL" name="side-rails@localhost" uuid="eb105f1d-cc04-42d3-8f52-7a9bcf0c3df3">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/rails</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/side-rails</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

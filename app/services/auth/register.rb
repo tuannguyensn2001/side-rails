@@ -15,7 +15,10 @@ module Auth
         return nil
       end
 
-      user = User.new(@params)
+      user = User.new
+      user.username = @params[:username]
+      user.email = @params[:email]
+      user.password = @params[:password]
       user.password = hash_password(user.password)
       if user.save
         user

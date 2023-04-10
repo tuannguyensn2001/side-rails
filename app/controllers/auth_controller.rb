@@ -1,4 +1,7 @@
 class AuthController < ApplicationController
+
+  before_action :authentication, except: [:register, :login]
+
   def register
 
     service = Auth::Register.new(params)
@@ -19,6 +22,18 @@ class AuthController < ApplicationController
       return
     end
 
-    render json: { message: 'Login',data: resp }
+    render json: { message: 'Login', data: resp }
   end
+
+  def get_me
+    Rails.logger.info "current_user: #{@user_id}"
+    service = Auth::GetMe.new(@user_id)
+    user = service.call
+    resp = {
+      message: "success",
+      data: user
+    }
+    render json: resp, :except=> [:password]
+  end
+
 end
