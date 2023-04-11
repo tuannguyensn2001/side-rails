@@ -1,7 +1,6 @@
 require "jwt"
-module Service
   module Auth
-    class Verify  < Service::BaseService
+    class Verify  < BaseService
       def initialize(token)
         super
         @token = token
@@ -12,4 +11,3 @@ module Service
       end
     end
   end
-end

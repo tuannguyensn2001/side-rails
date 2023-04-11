@@ -4,9 +4,8 @@ class CreateTests < ActiveRecord::Migration[7.0]
       t.string :code
       t.string :name
       t.integer :time_to_do
-      t.timestamp :time_start
-      t.string :time_end
-      t.string :timestamp
+      t.integer :time_start
+      t.integer :time_end
       t.boolean :do_once
       t.string :password
       t.integer :prevent_cheat

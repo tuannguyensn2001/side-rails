@@ -1,6 +1,6 @@
-module Service
-  module Test
-    class Create < Service::BaseService
+
+  module TestService
+    class Create < BaseService
       def initialize(params)
         super
         @params = params
@@ -8,6 +8,10 @@ module Service
 
       def call
         test = Test.new(@params)
+        test.version = 1
+
+
+
         unless test.valid?
           add_error(test.errors.full_messages)
         end
@@ -19,4 +23,3 @@ module Service
       end
     end
   end
-end

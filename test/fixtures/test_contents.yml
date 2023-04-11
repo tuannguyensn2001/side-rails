@@ -2,10 +2,8 @@
 
 one:
   test_id: 1
-  typeable_id: 1
-  typeable: 1
+  testable: one
 
 two:
   test_id: 1
-  typeable_id: 1
-  typeable: 1
+  testable: two

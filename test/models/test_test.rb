@@ -1,7 +1,7 @@
 require "test_helper"
 
 class TestTest < ActiveSupport::TestCase
-  # test "the truth" do
+  # test_service "the truth" do
   #   assert true
   # end
 end

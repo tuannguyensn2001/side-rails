@@ -10,16 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_10_143158) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_11_043947) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "test_contents", force: :cascade do |t|
     t.integer "test_id"
-    t.integer "typeable_id"
-    t.integer "typeable"
+    t.string "testable_type", null: false
+    t.bigint "testable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["testable_type", "testable_id"], name: "index_test_contents_on_testable"
   end
 
   create_table "test_multiple_choice_answers", force: :cascade do |t|
@@ -42,9 +43,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_143158) do
     t.string "code"
     t.string "name"
     t.integer "time_to_do"
-    t.datetime "time_start", precision: nil
-    t.string "time_end"
-    t.string "timestamp"
+    t.integer "time_start"
+    t.integer "time_end"
     t.boolean "do_once"
     t.string "password"
     t.integer "prevent_cheat"
