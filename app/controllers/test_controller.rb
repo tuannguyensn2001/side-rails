@@ -2,9 +2,8 @@ class TestController < ApplicationController
   # before_action :authentication
 
   def create
-    request = params.require(:test).permit(:name,:time_to_do,:time_start)
+    request = params.require(:test).permit(:name, :time_to_do, :time_start)
     service = TestService::Create.new(request)
-
 
     service.call
     if service.errors.any?
@@ -16,7 +15,7 @@ class TestController < ApplicationController
 
   def create_content
     Rails.logger.info params
-    request =  params.permit(
+    request = params.permit(
       :test_id,
       :typeable,
       multiple_choice: [
@@ -36,6 +35,13 @@ class TestController < ApplicationController
     else
       render json: { message: 'ok' }
     end
+  end
+
+  def find
+    test = Test.includes(:test_content).find(params[:id])
+    Rails.logger.info test.test_content.testable.test_multiple_choice_answers
+    # render json: { data: test.as_json(include: { test_content: { include: { testable: { include: :test_multiple_choice_answers } } } } ) }
+    render json: { data: TestSerializer.new(test) }
   end
 end
 

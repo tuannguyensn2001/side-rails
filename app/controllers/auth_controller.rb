@@ -15,7 +15,8 @@ class AuthController < ApplicationController
   end
 
   def login
-    service = Auth::Login.new(params)
+    request = params.permit(:email,:password)
+    service = Auth::Login.new(request)
     resp = service.call
     if service.errors.any?
       render json: { errors: service.errors }, status: :bad_request

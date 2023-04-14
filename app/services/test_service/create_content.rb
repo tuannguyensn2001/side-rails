@@ -15,8 +15,8 @@ module TestService
 
       ActiveRecord::Base.transaction do
         content = TestContent.where(test_id: test.id).first
-        content.testable.destroy if content.testable.present?
-        content.destroy if content.present?
+        # content.testable.destroy if content.testable.present?
+        # content.destroy if content.present?
 
         test_multiple_choice = TestMultipleChoice.new file_path: @params[:multiple_choice][:file_path], score: @params[:multiple_choice][:score]
         test_multiple_choice.save!

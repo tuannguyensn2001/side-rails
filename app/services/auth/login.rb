@@ -5,15 +5,22 @@ module Auth
   class Login < BaseService
     attr_reader :params
 
-    def initialize(params)
+    def initialize(params,secret = Rails.application.config.secret_key)
       super
       @params = params
-      @secret = Rails.application.config.secret_key
+      @secret = secret
+    end
+
+    def say
+      a = 1
+      puts a
+      Rails.logger.info "say"
     end
 
     def call
 
       user = User.find_by(email: params[:email])
+      say
       unless compare(params[:password], user.password)
         add_error("username or password not valid")
         return
@@ -29,6 +36,7 @@ module Auth
       payload[:exp] = 48.hours.from_now.to_i
       refresh_token = generate_token(payload)
       NotifyUserLoginJob.perform_later(user.id)
+      HardJob.perform_async
       { access_token: access_token, refresh_token: refresh_token }
     end
 
